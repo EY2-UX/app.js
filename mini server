@@ -10,3 +10,32 @@ const PORT = 80; // Standard website port
 server.listen(PORT, HOST, () => {
 console.log("Server is running!");
 });
+
+if (req.url == "/") {
+// Homepage was requested
+res.writeHead(200)
+res.end("Homepage")
+} else if (req.url == "/page1") {
+// Page 1 was requested
+res.setHeader("Content-Type", "text/html")
+res.writeHead(200)
+res.end("<h1>Page 1</h1>")
+} else {
+// Invalid page was specified, send error
+res.writeHead(404)
+res.end("Wrong page!")
+}
+if (req.url == "/") {
+// Homepage was requested
+res.writeHead(200)
+res.end("Homepage")
+} else if (req.url == "/page1.random") {
+// Page 1 was requested
+res.setHeader("Content-Type", "text/html")
+res.writeHead(200)
+res.end("<h1>Page 1.random</h1>")
+} else {
+// Invalid page was specified, send error
+res.writeHead(404)
+res.end("Not found!")
+}
